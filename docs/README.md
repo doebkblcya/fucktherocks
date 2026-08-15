@@ -13,6 +13,7 @@
 - **语言**：中文为主，专名保留原文
 - **搜索**：Pagefind 本地搜索
 - **品牌**：FuckTheRocks（域名 fuckthe.rocks）
+- **视觉风格**：复古黑胶车库风（暖亮奶油纸底 + 粗衬线 + 轻做旧，签名元素 = 黑胶唱片标签系统）
 
 ## 文档清单
 
@@ -21,8 +22,9 @@
 | `product.md` | 产品细节：定位、目标用户、站点地图、分类学、内容策略、MVP | ✅ 已完成 |
 | `requirements.md` | 需求分析：功能需求、非功能需求、数据字段、用例 | ✅ 已完成 |
 | `tech-design.md` | 技术实现：技术选型、架构、数据模型、MusicBrainz 管线、部署 | ✅ 已完成 |
+| `design.md` | 设计规范：复古黑胶车库风、设计 token、签名元素、组件规则 | ✅ 已完成 |
 | `roadmap.md` | 路线图：里程碑、MVP 范围、优先级、风险 | ✅ 已完成 |
 
 ## 阅读顺序建议
 
-`product.md`（锚点）→ `requirements.md`（数据字段）→ `tech-design.md`（落地）→ `roadmap.md`（排期）。
+`product.md`（锚点）→ `requirements.md`（数据字段）→ `tech-design.md`（落地）→ `design.md`（视觉规范）→ `roadmap.md`（排期）。
