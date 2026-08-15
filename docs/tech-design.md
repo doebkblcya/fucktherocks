@@ -154,7 +154,9 @@ export const collections = { genres, artists, albums, eras };
 - **静态输出**：`astro build` 产出 `dist/`；
 - **托管**：GitHub Pages（与仓库同源，免费）或 Cloudflare Pages（自定义域名配置更灵活）；
 - **域名**：`fuckthe.rocks` 作为自定义域名 CNAME 指向托管平台；
-- **CI**：GitHub Actions 在 push 到 `main` 时自动 `build + 部署`，并跑 Pagefind 索引。
+- **构建与部署**：
+  - **Cloudflare Pages（推荐）**：连接 Git 仓库后由其云端构建，push 到 `main` 自动 `build + 部署`，**无需自建 CI**（构建命令配置为 `astro build && pagefind --site dist`）；
+  - **GitHub Pages**：不自带构建，需另配 GitHub Actions 完成 build + 部署 + Pagefind 索引。
 
 ## 8. 关键决策与待定项
 
