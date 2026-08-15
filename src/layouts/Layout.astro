@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const nav = [
+  { href: '/history', label: '发展史' },
+  { href: '/taxonomy', label: '分类学' },
+  { href: '/artists', label: '乐队' },
+  { href: '/albums', label: '专辑' },
+  { href: '/search', label: '搜索' },
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} · FuckTheRocks</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="border-b border-(--color-line)">
+      <div class="mx-auto max-w-5xl px-6 py-5 flex items-baseline justify-between gap-6">
+        <a href="/" class="font-(family-name:--font-display) text-2xl font-bold tracking-tight text-(--color-ink) no-underline">
+          FuckThe<span class="text-(--color-accent)">Rocks</span>
+        </a>
+        <nav class="flex items-center gap-6 text-base">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class="text-(--color-ink-muted) no-underline hover:text-(--color-accent) transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-5xl flex-1 px-6 py-10">
+      <slot />
+    </main>
+
+    <footer class="border-t border-(--color-line)">
+      <div class="mx-auto max-w-5xl px-6 py-8 flex items-center justify-between text-sm text-(--color-ink-muted)">
+        <span>© {new Date().getFullYear()} FuckTheRocks</span>
+        <span class="proper-noun">fuckthe.rocks</span>
+      </div>
+    </footer>
+  </body>
+</html>

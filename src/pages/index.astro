@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import VinylDisc from '../components/VinylDisc.astro';
+
+const sections = [
+  {
+    href: '/history',
+    title: '发展史',
+    en: 'History',
+    desc: '从 50 年代起源到当代的全流派通史，沿时间线串联事件、乐队与代表专辑。',
+  },
+  {
+    href: '/taxonomy',
+    title: '分类学',
+    en: 'Taxonomy',
+    desc: '自由网状的流派体系：起源、衍生与融合，追溯每个流派从何而来。',
+  },
+  {
+    href: '/albums',
+    title: '专辑收录',
+    en: 'Albums',
+    desc: '里程碑与流派代表作，曲目、厂牌、发行信息与在史中的定位。',
+  },
+];
+---
+
+<Layout
+  title="首页"
+  description="FuckTheRocks —— 摇滚音乐知识网站：记载摇滚发展史、专辑收录与流派分类学。"
+>
+  <!-- Hero：黑胶唱片签名元素 -->
+  <section class="grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+    <div class="mx-auto md:mx-0">
+      <VinylDisc label="FuckTheRocks" sublabel="ROCK · N · ROLL" size={280} />
+    </div>
+    <div class="max-w-xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-(--color-warm)">
+        摇滚音乐知识档案
+      </p>
+      <h1 class="mb-4">
+        摇滚乐的系统化<span class="text-(--color-accent)">通史</span>与<span class="text-(--color-accent)">分类学</span>
+      </h1>
+      <p class="text-lg leading-relaxed text-(--color-ink-muted)">
+        记载摇滚的发展脉络、专辑收录与流派谱系。从 <span class="proper-noun">Rock &amp; Roll</span> 的源头，到重金属、朋克、另类与更多子流派——把散落的信息连成一张可交叉检索的知识网。
+      </p>
+    </div>
+  </section>
+
+  <!-- 三大内容区导航 -->
+  <section class="mt-16 grid gap-6 sm:grid-cols-3">
+    {sections.map((s) => (
+      <a
+        href={s.href}
+        class="group rounded-lg border border-(--color-line) bg-(--color-surface-alt) p-6 no-underline transition-colors hover:border-(--color-accent)"
+      >
+        <span class="proper-noun mb-1 block text-xs uppercase tracking-widest text-(--color-warm)">{s.en}</span>
+        <h2 class="mb-2 text-2xl">{s.title}</h2>
+        <p class="text-(--color-ink-muted)">{s.desc}</p>
+      </a>
+    ))}
+  </section>
+</Layout>

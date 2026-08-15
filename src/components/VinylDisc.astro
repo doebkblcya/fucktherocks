@@ -1,0 +1,63 @@
+---
+// 签名元素：黑胶唱片标签系统（docs/design.md 第 2 节）
+// 首页 hero 与流派页共用此视觉锚点。
+interface Props {
+  label?: string; // 中心标签主文字
+  sublabel?: string; // 中心标签副文字（如年代）
+  size?: number;
+}
+
+const { label = 'FuckTheRocks', sublabel = '', size = 260 } = Astro.props;
+const grooves = [92, 86, 80, 74, 68, 62, 56, 50, 44];
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 200 200"
+  role="img"
+  aria-label={label}
+  class="vinyl-disc"
+>
+  <!-- 盘面 -->
+  <circle cx="100" cy="100" r="99" fill="#141414" />
+  <!-- 纹路（同心圆） -->
+  <g stroke="#2e2e2e" stroke-width="0.6" fill="none">
+    {grooves.map((r) => <circle cx="100" cy="100" r={r} />)}
+  </g>
+  <!-- 盘面高光 -->
+  <path d="M 28 44 A 99 99 0 0 1 100 1" stroke="#3c3c3c" stroke-width="9" fill="none" opacity="0.35" stroke-linecap="round" />
+  <!-- 中心标签 -->
+  <circle cx="100" cy="100" r="38" fill="#f5efe0" stroke="#d8cdb4" stroke-width="1" />
+  <circle cx="100" cy="100" r="33" fill="none" stroke="#d8cdb4" stroke-width="0.5" />
+  <!-- 标签文字 -->
+  <text
+    x="100"
+    y={sublabel ? '94' : '102'}
+    text-anchor="middle"
+    fill="#1a1a1a"
+    font-family="Rockwell, Georgia, serif"
+    font-size="12"
+    font-weight="700"
+  >{label}</text>
+  {sublabel && (
+    <text
+      x="100"
+      y="110"
+      text-anchor="middle"
+      fill="#c0392b"
+      font-family="Rockwell, Georgia, serif"
+      font-size="8"
+      font-weight="700"
+      letter-spacing="1"
+    >{sublabel}</text>
+  )}
+  <!-- 中心孔 -->
+  <circle cx="100" cy="100" r="4" fill="#f5efe0" stroke="#d8cdb4" stroke-width="0.5" />
+</svg>
+
+<style>
+  .vinyl-disc {
+    filter: drop-shadow(0 10px 24px rgb(26 26 26 / 0.25));
+  }
+</style>
