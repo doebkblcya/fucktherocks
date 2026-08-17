@@ -106,6 +106,10 @@
 
 ## 9. 参考资源
 
-- `frontend-design` skill（方法论）：`~/.dsh/skills/frontend-design/SKILL.md`
-- `editorial` skill（排版）：`~/.dsh/skills/editorial/SKILL.md`
-- `paper` skill（纸张质感）：`~/.dsh/skills/paper/SKILL.md`
+三个设计 skill 已固化为**项目级 skill**（位于 `.dsh/skills/`），随仓库分发，团队任何成员 clone 后即自动获得，无需各自手动安装：
+
+- `frontend-design` skill（方法论）：`.dsh/skills/frontend-design/SKILL.md`
+- `editorial` skill（排版）：`.dsh/skills/editorial/SKILL.md`
+- `paper` skill（纸张质感）：`.dsh/skills/paper/SKILL.md`
+
+> 约定：设计相关 skill 统一放项目级 `.dsh/skills/`（而非全局 `~/.dsh/skills/`），保证团队环境一致、版本可控。
