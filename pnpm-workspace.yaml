@@ -1,2 +1,9 @@
 allowBuilds:
   esbuild: true
+  sharp: true
+
+# 临时固定 Vite 7：规避 Vite 8 模块运行器无法执行内联 CJS（picomatch）的回归，
+# 以及 @tailwindcss/vite peer 误解析到 Vite 8 导致的版本分裂。
+# 上游修复后可移除并升级回 Astro 7 + Vite 8。
+overrides:
+  vite: 7.3.6
