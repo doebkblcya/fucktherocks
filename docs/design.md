@@ -106,10 +106,10 @@
 
 ## 9. 参考资源
 
-三个设计 skill 已固化为**项目级 skill**（位于 `.dsh/skills/`），随仓库分发，团队任何成员 clone 后即自动获得，无需各自手动安装：
+三个设计 skill 已固化为**项目级 skill**（位于 `.agents/skills/`），随仓库分发，Codex 会从当前目录向上扫描仓库根的 `.agents/skills` 自动发现，团队任何成员 clone 后即自动获得，无需各自手动安装：
 
-- `frontend-design` skill（方法论）：`.dsh/skills/frontend-design/SKILL.md`
-- `editorial` skill（排版）：`.dsh/skills/editorial/SKILL.md`
-- `paper` skill（纸张质感）：`.dsh/skills/paper/SKILL.md`
+- `frontend-design` skill（方法论）：`.agents/skills/frontend-design/SKILL.md`
+- `editorial` skill（排版）：`.agents/skills/editorial/SKILL.md`
+- `paper` skill（纸张质感）：`.agents/skills/paper/SKILL.md`
 
-> 约定：设计相关 skill 统一放项目级 `.dsh/skills/`（而非全局 `~/.dsh/skills/`），保证团队环境一致、版本可控。
+> 约定：设计相关 skill 统一放项目级 `.agents/skills/`（而非全局 `~/.agents/skills/`），保证团队环境一致、版本可控。
