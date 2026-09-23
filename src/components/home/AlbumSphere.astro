@@ -1,0 +1,73 @@
+---
+import albums from '../../data/home-albums.json';
+const still = albums[0];
+---
+
+<div class="sphere-shell" data-sphere-shell aria-hidden="true">
+  <canvas data-album-canvas></canvas>
+  <div class="sphere-static" data-sphere-static>
+    <img src={`/covers/${still.id}.jpg`} alt="" width="500" height="500" loading="eager" fetchpriority="high" />
+  </div>
+</div>
+
+<script>
+  const shell = document.querySelector<HTMLElement>('[data-sphere-shell]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (shell && !reduceMotion) {
+    import('./album-sphere')
+      .then(({ initAlbumSphere }) => initAlbumSphere(shell))
+      .catch(() => { shell.dataset.mode = 'static'; });
+  } else if (shell) {
+    shell.dataset.mode = 'static';
+  }
+</script>
+
+<style>
+  .sphere-shell {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0;
+    transition: opacity 600ms ease;
+  }
+
+  .sphere-shell[data-ready='true'] canvas {
+    opacity: 1;
+  }
+
+  .sphere-static {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transition: opacity 300ms ease;
+  }
+
+  .sphere-static img {
+    width: clamp(12rem, 24vw, 23rem);
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .sphere-shell[data-ready='true'] .sphere-static {
+    opacity: 0;
+  }
+
+  .sphere-shell[data-mode='static'] .sphere-static {
+    opacity: 1;
+  }
+
+  @media (max-width: 760px) {
+    .sphere-static img {
+      width: min(55vw, 14rem);
+    }
+  }
+</style>

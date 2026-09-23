@@ -1,0 +1,90 @@
+[
+  {
+    "id": "roots-before-rock",
+    "period": "19 世纪末—1953",
+    "title": "摇滚之前，多条根源相遇",
+    "summary": "蓝调、福音、乡村、爵士与城市 R&B 并行发展，彼此交换节奏、唱法和乐器语言。",
+    "shift": "录音分类、城市迁移、电声化与独立电台",
+    "genres": ["folk-traditions", "blues", "gospel", "country", "jazz", "r-and-b"]
+  },
+  {
+    "id": "rock-and-roll",
+    "period": "1954—1959",
+    "title": "Rock ’n’ Roll 进入大众视野",
+    "summary": "不同根源在新的青少年市场中汇流；这不是某一个人、某一首歌的单一起点。",
+    "shift": "45 转单曲、广播、电视与跨市场传播",
+    "genres": ["rock-and-roll", "rockabilly", "doo-wop"]
+  },
+  {
+    "id": "bands-and-atlantic",
+    "period": "1960—1964",
+    "title": "乐队时代与大西洋往返",
+    "summary": "美国唱片影响英国乐队，英国乐队又将重新组织的节奏蓝调和摇滚带回更广的市场。",
+    "shift": "British Invasion、Surf、Soul 与地区 Garage 场景",
+    "genres": ["surf-rock", "soul", "british-beat", "garage-rock"]
+  },
+  {
+    "id": "rock-expands",
+    "period": "1965—1969",
+    "title": "Rock 第一次大分化",
+    "summary": "民谣写作、迷幻音色、蓝调吉他和录音室实验并行扩张，歌曲与专辑有了更多形状。",
+    "shift": "效果器、多轨录音、反文化与专辑地位上升",
+    "genres": ["folk-rock", "garage-rock", "psychedelic-rock", "blues-rock", "experimental-rock", "progressive-rock", "hard-rock"]
+  },
+  {
+    "id": "album-era",
+    "period": "1970—1974",
+    "title": "专辑时代，多条路线成熟",
+    "summary": "前卫、华丽、重金属与德国实验场景同时发展；摇滚不再只有一种声音或舞台形象。",
+    "shift": "概念专辑、合成器、Arena 扩张与地域场景",
+    "genres": ["heavy-metal", "progressive-rock", "glam-rock", "krautrock", "southern-rock", "jazz-rock"]
+  },
+  {
+    "id": "punk-reset",
+    "period": "1975—1979",
+    "title": "Punk 重置参与规则",
+    "summary": "短歌与直接表达之外，DIY 厂牌、小场地和自出版网络让更多人参与音乐生产。",
+    "shift": "纽约与伦敦场景、fanzine、独立发行",
+    "genres": ["proto-punk", "punk-rock", "new-wave", "post-punk", "industrial", "nwobhm"]
+  },
+  {
+    "id": "underground-systems",
+    "period": "1980—1984",
+    "title": "地下网络与金属分支成形",
+    "summary": "Hardcore、Goth 和独立网络各自扩展；金属场景也开始沿速度与重量分出新路线。",
+    "shift": "College Radio、MTV、城市 Hardcore 与 NWOBHM",
+    "genres": ["hardcore-punk", "gothic-rock", "alternative-rock", "indie-rock", "thrash-metal", "doom-metal"]
+  },
+  {
+    "id": "extreme-and-alternative",
+    "period": "1985—1989",
+    "title": "另类与极端声音并行",
+    "summary": "独立场景里的噪声、情绪化写作和西雅图混合声音，与极端金属的分化同时发生。",
+    "shift": "D.C. 场景、Seattle/Sub Pop 与 Thrash 高峰",
+    "genres": ["emo", "noise-rock", "grunge", "shoegaze", "death-metal", "power-metal", "progressive-metal"]
+  },
+  {
+    "id": "alternative-breakthrough",
+    "period": "1990—1994",
+    "title": "Alternative 进入主流",
+    "summary": "Grunge 的突破改变了市场分类，但 Shoegaze、Post-Rock 和地域化极端金属仍走在不同道路上。",
+    "shift": "MTV、独立网络的商业化与地域场景",
+    "genres": ["grunge", "shoegaze", "post-rock", "britpop", "black-metal-second-wave", "industrial-rock"]
+  },
+  {
+    "id": "hybrid-explosion",
+    "period": "1995—1999",
+    "title": "融合类型与市场标签扩张",
+    "summary": "金属、硬核、工业、嘻哈和另类摇滚交叉，旧标签越来越难描述单一的声音。",
+    "shift": "Britpop 媒体化、Nu Metal、Metalcore 与互联网前夜",
+    "genres": ["post-grunge", "britpop", "nu-metal", "metalcore", "melodic-death-metal", "gothic-metal", "post-metal"]
+  },
+  {
+    "id": "network-era",
+    "period": "2000—今天",
+    "title": "复兴、平台化与多中心网络",
+    "summary": "旧声音被重新发现，跨地域与跨类型的连接变快；当代摇滚不再由单一主流路线代表。",
+    "shift": "数字发行、流媒体与全球场景的交错",
+    "genres": ["garage-rock-revival", "post-punk-revival", "emo-pop", "melodic-metalcore", "deathcore", "blackgaze", "indie-rock"]
+  }
+]

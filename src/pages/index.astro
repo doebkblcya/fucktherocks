@@ -1,0 +1,139 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import AlbumSphere from '../components/home/AlbumSphere.astro';
+import albums from '../data/home-albums.json';
+---
+
+<SiteLayout
+  title="FuckTheRocks"
+  description="沿着专辑与年代，进入摇滚的关系网络。"
+  page="home"
+>
+  <section class="home-scroll" data-home-scroll>
+    <div class="home-stage">
+      <AlbumSphere />
+
+      <h1 class="visually-hidden">FuckTheRocks 专辑画廊</h1>
+
+      <div class="album-caption" aria-live="off">
+        <div class="caption-meta">
+          <span data-active-year>{albums[0].year}</span>
+          <span data-active-branch>{albums[0].branch}</span>
+        </div>
+        <div class="caption-content" data-album-caption-content>
+          <strong data-active-title>{albums[0].title}</strong>
+          <span data-active-artist>{albums[0].artist}</span>
+          <p data-active-intro>{albums[0].intro}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .home-scroll {
+    position: relative;
+    height: max(900vh, 8500px);
+  }
+
+  .home-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 45%, #f8f7f4 0%, var(--paper) 72%, #e9e7e1 100%);
+  }
+
+  .album-caption {
+    position: absolute;
+    z-index: 4;
+    left: 3.5%;
+    top: 7.5rem;
+    width: min(25rem, 36vw);
+    padding: 0.8rem 0.8rem 0 0;
+    border-top: 1px solid var(--ink);
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
+
+  .caption-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+  }
+
+  .caption-content {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+    margin-top: 0.9rem;
+  }
+
+  .album-caption strong {
+    font-size: clamp(0.9rem, 1.35vw, 1.15rem);
+    font-weight: 600;
+    line-height: 1.16;
+  }
+
+  .caption-content > span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  .caption-content p {
+    max-width: 32em;
+    margin: 0.7rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 760px) {
+    .home-scroll {
+      height: max(900vh, 8500px);
+    }
+
+    .home-stage::after {
+      content: '';
+      position: absolute;
+      z-index: 3;
+      inset: auto 0 0;
+      height: 28%;
+      background: linear-gradient(transparent, var(--paper));
+      pointer-events: none;
+    }
+
+    .album-caption {
+      right: 1rem;
+      top: auto;
+      bottom: 1.25rem;
+      left: 1rem;
+      width: auto;
+      padding-right: 0;
+    }
+
+    .caption-content {
+      margin-top: 0.65rem;
+    }
+
+    .caption-content p {
+      margin-top: 0.45rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-scroll {
+      height: 100svh;
+    }
+
+    .home-stage {
+      position: relative;
+    }
+  }
+</style>

@@ -1,0 +1,857 @@
+[
+  {
+    "id": "folk-traditions",
+    "name": "民间传统 Folk Traditions",
+    "kind": "root",
+    "period": "现代唱片工业以前，多地域",
+    "definition": "口传、地方舞曲、劳动与叙事传统；不是所有美国音乐的单一父级",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "blues",
+    "name": "蓝调 Blues",
+    "kind": "root",
+    "period": "19 世纪末—20 世纪初，美国南部",
+    "definition": "蓝调音阶、call-and-response、个人叙事和多种结构；Country/Urban/Electric 是重要内部变化",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "gospel",
+    "name": "福音 Gospel",
+    "kind": "root",
+    "period": "20 世纪上半叶，美国黑人教会",
+    "definition": "强烈人声、应答、情感递进；直接影响 R&B、Soul 与 Rock 'n' Roll",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "country",
+    "name": "乡村 Country",
+    "kind": "root",
+    "period": "1920s 商业录音，美国南部／阿巴拉契亚",
+    "definition": "弦乐、叙事、地方口音；内部含 Old-Time、Honky-tonk、Western Swing 等资源",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "jazz",
+    "name": "爵士 Jazz",
+    "kind": "root",
+    "period": "20 世纪初，美国",
+    "definition": "Swing、即兴、和声与合奏互动；主要以影响和融合进入 Rock",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "r-and-b",
+    "name": "节奏蓝调 R&B",
+    "kind": "root",
+    "period": "1940s，美国城市黑人音乐市场",
+    "definition": "Jump Blues、Jazz、Gospel、Boogie 与电声节奏的宽泛历史类别",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "soul",
+    "name": "灵魂乐 Soul",
+    "kind": "genre",
+    "period": "1950s 末—1960s，美国",
+    "definition": "R&B 与 Gospel 的人声、节奏和世俗表达融合；与 Rock 长期 crossover",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "rock-and-roll",
+    "name": "Rock 'n' Roll",
+    "kind": "genre",
+    "period": "1940s 后期萌芽，1950s 中期突破",
+    "definition": "R&B、Country、Gospel、Pop songcraft 的跨市场汇流",
+    "scope": "核心",
+    "family": "roots"
+  },
+  {
+    "id": "rockabilly",
+    "name": "山区乡村摇滚 Rockabilly",
+    "kind": "genre",
+    "period": "1950s，美国南部",
+    "definition": "Country/Hillbilly 与 R&B 的小编制高速结合",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "doo-wop",
+    "name": "Doo-Wop",
+    "kind": "genre",
+    "period": "1940s 末—1950s，美国城市",
+    "definition": "黑人声乐组合、Gospel/R&B 和声与街角文化；重要早期支线",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "surf-rock",
+    "name": "冲浪摇滚 Surf Rock",
+    "kind": "genre",
+    "period": "1960s 初，美国加州",
+    "definition": "混响吉他与快速 picking；人声支系连接 Pop 与青年海滩文化",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "pop-rock",
+    "name": "流行摇滚 Pop Rock",
+    "kind": "umbrella",
+    "period": "1960s 起，英美及全球",
+    "definition": "Rock 编制与 Pop songcraft 的长期交叉，不是单一谱系",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "funk",
+    "name": "放克 Funk",
+    "kind": "adjacent",
+    "period": "1960s，美国",
+    "definition": "R&B/Soul 的节奏与 groove 路线；影响 Post-Punk、Funk Metal 与 Alternative",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "electronic",
+    "name": "电子音乐 Electronic",
+    "kind": "adjacent",
+    "period": "20 世纪中期起，多地",
+    "definition": "合成、磁带、机器节奏与制作传统；长期进入 Krautrock、Post-Punk、Industrial",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "ambient",
+    "name": "氛围音乐 Ambient",
+    "kind": "adjacent",
+    "period": "1970s 被命名，多地",
+    "definition": "以空间、音色和环境为中心；影响 Post-Rock/Post-Metal 等",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "hip-hop",
+    "name": "Hip-Hop",
+    "kind": "adjacent",
+    "period": "1970s，纽约；随后全球",
+    "definition": "MC、DJ、breakbeat、采样与街区文化；与 Rap Metal/Nu Metal 等交汇",
+    "scope": "展开",
+    "family": "roots"
+  },
+  {
+    "id": "british-beat",
+    "name": "British Beat",
+    "kind": "scene",
+    "period": "1960s 初，英国",
+    "definition": "Skiffle、R&B、Rock 'n' Roll 与英国乐队文化",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "folk-rock",
+    "name": "民谣摇滚 Folk Rock",
+    "kind": "genre",
+    "period": "1960s 中期，英美",
+    "definition": "Folk 写作、和声和抗议传统 + Rock 节拍",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "country-rock",
+    "name": "乡村摇滚 Country Rock",
+    "kind": "genre",
+    "period": "1960s 后期，美国",
+    "definition": "Country 乐器／和声 + Rock 编制",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "southern-rock",
+    "name": "南方摇滚 Southern Rock",
+    "kind": "scene",
+    "period": "1960s 末—1970s，美国南部",
+    "definition": "Blues Rock + Country/Honky-tonk + 即兴与地域叙事",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "blues-rock",
+    "name": "蓝调摇滚 Blues Rock",
+    "kind": "genre",
+    "period": "1960s 中后期，英美",
+    "definition": "Electric Blues 在乐队、音量与长篇即兴中的强化",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "garage-rock",
+    "name": "车库摇滚 Garage Rock",
+    "kind": "scene",
+    "period": "1960s，美国地方网络",
+    "definition": "简陋录音、重复 riff、直接能量；通向 Proto-Punk",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "psychedelic-rock",
+    "name": "迷幻摇滚 Psychedelic Rock",
+    "kind": "genre",
+    "period": "1960s 中后期，英美",
+    "definition": "Folk/Garage/Beat + 效果器、非西方音色与录音室实验",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "acid-rock",
+    "name": "酸性摇滚 Acid Rock",
+    "kind": "genre",
+    "period": "1960s 后期，美国",
+    "definition": "Psychedelic + Blues/Hard；更重、长篇和即兴",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "experimental-rock",
+    "name": "实验摇滚 Experimental Rock",
+    "kind": "umbrella",
+    "period": "1960s 起，多地",
+    "definition": "Rock 与 tape、noise、avant-garde、非标准结构结合",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "art-rock",
+    "name": "艺术摇滚 Art Rock",
+    "kind": "umbrella",
+    "period": "1960s 后期，英美",
+    "definition": "把专辑、概念、制作和表演视为整体艺术",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "progressive-rock",
+    "name": "前卫摇滚 Progressive Rock",
+    "kind": "genre",
+    "period": "1960s 后期—1970s，英国为主",
+    "definition": "Psychedelic/Art + Classical/Jazz；长篇、多段与复杂节拍",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "jazz-rock",
+    "name": "爵士摇滚 Jazz-Rock / Fusion",
+    "kind": "genre",
+    "period": "1960s 末—1970s，英美",
+    "definition": "Jazz 即兴和复杂性 + Rock/Funk 电声能量",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "krautrock",
+    "name": "Krautrock",
+    "kind": "scene",
+    "period": "1960s 末—1970s，西德",
+    "definition": "Experimental/Psychedelic + Electronic/Minimalism；名称是外部伞形称呼",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "hard-rock",
+    "name": "硬摇滚 Hard Rock",
+    "kind": "genre",
+    "period": "1960s 后期，英美",
+    "definition": "Blues Rock + Psychedelic 的重 riff、强鼓点和高音量",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "glam-rock",
+    "name": "华丽摇滚 Glam Rock",
+    "kind": "scene",
+    "period": "1970s 前半，英国",
+    "definition": "Rock 'n' Roll/Pop + 剧场、时尚、camp 和性别表演",
+    "scope": "核心",
+    "family": "expansion"
+  },
+  {
+    "id": "power-pop",
+    "name": "强力流行 Power Pop",
+    "kind": "genre",
+    "period": "1970s 初，英美",
+    "definition": "British Invasion melody + 响亮吉他 + 三分钟 Pop hook",
+    "scope": "展开",
+    "family": "expansion"
+  },
+  {
+    "id": "proto-punk",
+    "name": "原型朋克 Proto-Punk",
+    "kind": "umbrella",
+    "period": "1960s 末—1970s 初，美国等",
+    "definition": "Garage、Experimental、Hard Rock 的原始、重复与对抗面",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "heavy-metal",
+    "name": "重金属 Heavy Metal",
+    "kind": "genre",
+    "period": "1960s 末—1970s 初，英国／美国",
+    "definition": "Hard/Blues/Psychedelic 的重 riff、失真、强鼓点和黑暗／宏大主题",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "punk-rock",
+    "name": "朋克摇滚 Punk Rock",
+    "kind": "scene",
+    "period": "1970s 中期，纽约／伦敦等",
+    "definition": "Garage、Rock 'n' Roll、Proto-Punk + DIY 场景",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "new-wave",
+    "name": "新浪潮 New Wave",
+    "kind": "umbrella",
+    "period": "1970s 后期—1980s，英美",
+    "definition": "Punk 之后的 Pop、电子、Ska/Reggae 与视觉媒体交汇",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "post-punk",
+    "name": "后朋克 Post-Punk",
+    "kind": "umbrella",
+    "period": "1970s 后期—1980s 初，英国／美国",
+    "definition": "Punk 的生产伦理 + Dub、Funk、Art/Experimental 与电子",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "hardcore-punk",
+    "name": "硬核朋克 Hardcore Punk",
+    "kind": "scene",
+    "period": "1970s 末—1980s，美国多城",
+    "definition": "Punk 的速度、短歌、强重音与自治场景",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "post-hardcore",
+    "name": "后硬核 Post-Hardcore",
+    "kind": "umbrella",
+    "period": "1980s 中后期，美国",
+    "definition": "Hardcore 场景承接，扩大动态、结构和情绪表达",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "emo",
+    "name": "情绪硬核／Emo",
+    "kind": "scene",
+    "period": "1980s 中期，Washington D.C.",
+    "definition": "Post-Hardcore/Hardcore 中私人化、动态化写作；后续形态差异很大",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "gothic-rock",
+    "name": "哥特摇滚 Gothic Rock",
+    "kind": "scene",
+    "period": "1970s 末—1980s，英国",
+    "definition": "Post-Punk 的阴暗、低音驱动、空间化与戏剧表达",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "ethereal-wave",
+    "name": "仙音 Ethereal Wave",
+    "kind": "genre",
+    "period": "1980s，英国／欧洲",
+    "definition": "Gothic/Post-Punk + Dream Pop 式氛围与人声",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "darkwave",
+    "name": "暗潮 Darkwave",
+    "kind": "umbrella",
+    "period": "1980s，欧洲／北美",
+    "definition": "Post-Punk/Goth/New Wave + Synth/Electronic；地域含义不同",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "noise-rock",
+    "name": "噪音摇滚 Noise Rock",
+    "kind": "genre",
+    "period": "1980s，美国等",
+    "definition": "Punk/Post-Punk + No Wave/Experimental 的失谐、噪音和身体性",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "noise-pop",
+    "name": "噪音流行 Noise Pop",
+    "kind": "genre",
+    "period": "1980s 中后期，英国／美国",
+    "definition": "Pop melody + feedback/distortion；连接 Indie 与 Shoegaze",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "dream-pop",
+    "name": "梦幻流行 Dream Pop",
+    "kind": "umbrella",
+    "period": "1980s，英国／美国",
+    "definition": "Post-Punk、Neo-Psychedelia 与空间化制作",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "shoegaze",
+    "name": "盯鞋 Shoegaze",
+    "kind": "scene",
+    "period": "1980s 末—1990s 初，英国／爱尔兰",
+    "definition": "Dream/Noise Pop + Psychedelic，突出反馈、音墙和人声后置",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "alternative-rock",
+    "name": "另类摇滚 Alternative Rock",
+    "kind": "umbrella",
+    "period": "1980s 地下网络；1991 后市场化",
+    "definition": "College Radio、独立厂牌和非主流场景的宽泛集合",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "indie-rock",
+    "name": "独立摇滚 Indie Rock",
+    "kind": "umbrella",
+    "period": "1980s 起，英美及全球",
+    "definition": "首先指独立生产／发行位置，后来兼有审美含义",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "madchester",
+    "name": "Madchester",
+    "kind": "scene",
+    "period": "1980s 末—1990s 初，Manchester",
+    "definition": "Indie/Post-Punk + Dance、Acid House 与 rave 文化",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "grunge",
+    "name": "Grunge",
+    "kind": "scene",
+    "period": "1980s 中后期，Seattle／美国西北",
+    "definition": "Punk/Hardcore、Garage、Hard Rock 与 Metal 的地方性混合",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "post-grunge",
+    "name": "后垃圾 Post-Grunge",
+    "kind": "umbrella",
+    "period": "1990s 中期，北美",
+    "definition": "Grunge 进入主流后的简化、广播化和跨地域复制",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "britpop",
+    "name": "Britpop",
+    "kind": "scene",
+    "period": "1990s 前中期，英国",
+    "definition": "British Pop/Rock 传统 + Indie 场景与媒体化地域身份",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "industrial",
+    "name": "工业音乐 Industrial",
+    "kind": "scene",
+    "period": "1970s 后期，英国／欧洲",
+    "definition": "Tape、noise、electronics、performance art 与挑衅性实验",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "industrial-rock",
+    "name": "工业摇滚 Industrial Rock",
+    "kind": "genre",
+    "period": "1980s 末—1990s，英美",
+    "definition": "Industrial 方法 + Rock 歌曲、吉他和巡演体系",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "post-rock",
+    "name": "后摇滚 Post-Rock",
+    "kind": "umbrella",
+    "period": "1990s 初被命名，多地",
+    "definition": "Rock 乐器 + Krautrock、Ambient、Minimalism、Dub、Jazz 与电子",
+    "scope": "核心",
+    "family": "alternative"
+  },
+  {
+    "id": "math-rock",
+    "name": "数学摇滚 Math Rock",
+    "kind": "genre",
+    "period": "1980s 末—1990s，美国／日本等",
+    "definition": "Post-Hardcore/Indie + 不规则节拍、断裂 riff 和结构精度",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "garage-rock-revival",
+    "name": "车库摇滚复兴",
+    "kind": "scene",
+    "period": "1990s 末—2000s 初，纽约／底特律等",
+    "definition": "对 1960s Garage、Punk 与简洁 Rock 编制的再阐释",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "post-punk-revival",
+    "name": "后朋克复兴",
+    "kind": "scene",
+    "period": "2000s 初，英美",
+    "definition": "Post-Punk/New Wave 的节奏与音色在 Indie 网络中复兴",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "emo-pop",
+    "name": "Emo Pop",
+    "kind": "umbrella",
+    "period": "1990s 末—2000s，北美",
+    "definition": "Emo/Post-Hardcore + Pop Punk/Pop songcraft；不等同全部 Emo",
+    "scope": "展开",
+    "family": "alternative"
+  },
+  {
+    "id": "traditional-heavy-metal",
+    "name": "传统重金属",
+    "kind": "umbrella",
+    "period": "1970s—1980s，英美",
+    "definition": "Heavy Metal 的 riff、独奏、强力人声与乐队语法",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "nwobhm",
+    "name": "NWOBHM",
+    "kind": "scene",
+    "period": "1970s 末—1980s 中期，英国",
+    "definition": "Heavy Metal + Punk 时代 DIY、速度和双吉他；是场景运动",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "glam-metal",
+    "name": "华丽金属 Glam/Hair Metal",
+    "kind": "scene",
+    "period": "1980s，美国洛杉矶为主",
+    "definition": "Hard/Heavy + Pop hook、吉他英雄和 MTV 形象",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "doom-metal",
+    "name": "厄运金属 Doom Metal",
+    "kind": "genre",
+    "period": "1970s 根源；1980s 成形，英美",
+    "definition": "Black Sabbath 式低速、沉重 riff 与压迫氛围",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "stoner-metal",
+    "name": "石人／沙漠金属 Stoner Metal",
+    "kind": "scene",
+    "period": "1980s 末—1990s，美国等",
+    "definition": "Doom + Psychedelic/Acid/Blues Rock 的 fuzz 与 groove",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "sludge-metal",
+    "name": "污泥金属 Sludge Metal",
+    "kind": "scene",
+    "period": "1980s 后期，美国南部／西海岸",
+    "definition": "Doom/Metal 的重量 + Hardcore/Noise 的粗粝与场景伦理",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "speed-metal",
+    "name": "速度金属 Speed Metal",
+    "kind": "genre",
+    "period": "1970s 末—1980s，欧美",
+    "definition": "NWOBHM/Heavy Metal + Punk 速度；与早期 Thrash/Power 重叠",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "thrash-metal",
+    "name": "激流金属 Thrash Metal",
+    "kind": "scene",
+    "period": "1980s 初，美国／德国等",
+    "definition": "NWOBHM/Speed + Hardcore/Punk；高速切分 riff",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "groove-metal",
+    "name": "律动金属 Groove Metal",
+    "kind": "genre",
+    "period": "1980s 末—1990s，美国",
+    "definition": "Thrash 后期的中速、切分、低沉和强身体律动",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "death-metal",
+    "name": "死亡金属 Death Metal",
+    "kind": "scene",
+    "period": "1980s 中后期，美国／瑞典等",
+    "definition": "Thrash/第一波极端金属的更重音色、低吼、复杂 riff",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "melodic-death-metal",
+    "name": "旋律死亡金属",
+    "kind": "scene",
+    "period": "1990s 初，瑞典 Gothenburg 等",
+    "definition": "Swedish Death + NWOBHM/传统旋律金属资源",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "brutal-death-metal",
+    "name": "残酷死亡金属",
+    "kind": "genre",
+    "period": "1980s 末—1990s，美国等",
+    "definition": "Death Metal 的低音域、密集打击与极端声线强化",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "technical-death-metal",
+    "name": "技术死亡金属",
+    "kind": "method",
+    "period": "1980s 末—1990s，多地",
+    "definition": "Death Metal + Progressive/technical 方法；强调复杂节奏与技巧",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "black-metal-first-wave",
+    "name": "第一波黑金属",
+    "kind": "scene",
+    "period": "1980s，英国／欧洲／南美",
+    "definition": "Heavy/Speed/Thrash 的极端美学、名称和粗粝制作",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "black-metal-second-wave",
+    "name": "第二波黑金属",
+    "kind": "scene",
+    "period": "1990s 初，挪威为中心",
+    "definition": "第一波资源的高速 tremolo、氛围、美学与地域场景再编码",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "power-metal",
+    "name": "力量金属 Power Metal",
+    "kind": "genre",
+    "period": "1980s，欧美两条路线",
+    "definition": "Heavy/Speed + 旋律、强力人声与史诗叙事；美欧重心不同",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "progressive-metal",
+    "name": "前卫金属 Progressive Metal",
+    "kind": "genre",
+    "period": "1980s 中后期，欧美",
+    "definition": "Heavy Metal + Progressive Rock 的长篇、复杂结构和概念",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "folk-metal",
+    "name": "民谣金属 Folk Metal",
+    "kind": "umbrella",
+    "period": "1990s，欧洲等",
+    "definition": "Metal + 地域民间乐器、旋律、语言与叙事",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "viking-metal",
+    "name": "维京金属 Viking Metal",
+    "kind": "scene",
+    "period": "1980s 末—1990s，北欧",
+    "definition": "Black/Heavy/Folk 资源 + 北欧主题和氛围；不由 Doom 单线产生",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "death-doom",
+    "name": "死亡厄运 Death-Doom",
+    "kind": "genre",
+    "period": "1980s 末—1990s 初，欧洲／美国",
+    "definition": "Death Metal + Doom 的低速、低吼和沉重氛围",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "funeral-doom",
+    "name": "葬礼厄运 Funeral Doom",
+    "kind": "genre",
+    "period": "1990s，欧洲等",
+    "definition": "Death-Doom/Doom 的极慢速度、长篇和极端压抑空间",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "gothic-metal",
+    "name": "哥特金属 Gothic Metal",
+    "kind": "umbrella",
+    "period": "1990s，欧洲",
+    "definition": "Death-Doom、Gothic/Ethereal、女性声线等地域路线汇合",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "symphonic-metal",
+    "name": "交响金属 Symphonic Metal",
+    "kind": "method",
+    "period": "1990s，欧洲等",
+    "definition": "Orchestral/symphonic 方法附着于 Power、Gothic、Black 等金属",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "crossover-thrash",
+    "name": "Crossover Thrash",
+    "kind": "scene",
+    "period": "1980s 中期，美国",
+    "definition": "Hardcore Punk + Thrash Metal 的双向融合",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "grindcore",
+    "name": "Grindcore",
+    "kind": "genre",
+    "period": "1980s 中后期，英国／美国",
+    "definition": "Hardcore/Crust + Thrash/Death + Noise 的高速极端化",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "metalcore",
+    "name": "金属核 Metalcore",
+    "kind": "scene",
+    "period": "1980s 末萌芽，1990s 成形，美国",
+    "definition": "Hardcore 场景 + Metal riff、重量与 breakdown",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "melodic-metalcore",
+    "name": "旋律金属核",
+    "kind": "scene",
+    "period": "1990s 末—2000s，美国等",
+    "definition": "Metalcore + Melodic Death 的双吉他旋律和歌曲结构",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "deathcore",
+    "name": "死核 Deathcore",
+    "kind": "scene",
+    "period": "2000s，美国等",
+    "definition": "Metalcore breakdown + Death Metal 的音色、riff 与声线",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "alternative-metal",
+    "name": "另类金属 Alternative Metal",
+    "kind": "umbrella",
+    "period": "1980s 末—1990s，美国",
+    "definition": "Metal 与 Funk、Hip-Hop、Industrial、Prog、Hardcore 等实验交叉",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "rap-metal",
+    "name": "说唱金属 Rap Metal",
+    "kind": "genre",
+    "period": "1980s 末—1990s，美国",
+    "definition": "Hip-Hop vocal/rhythm + Hard Rock/Metal；与 Nu Metal 部分重叠",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "funk-metal",
+    "name": "放克金属 Funk Metal",
+    "kind": "genre",
+    "period": "1980s 中后期—1990s，美国",
+    "definition": "Funk groove/bass + Metal/Hard Rock",
+    "scope": "展开",
+    "family": "metal"
+  },
+  {
+    "id": "nu-metal",
+    "name": "新金属 Nu Metal",
+    "kind": "scene",
+    "period": "1990s 中后期—2000s 初，美国",
+    "definition": "Alternative Metal + Hip-Hop/Funk/Industrial/Groove，低调弦与切分",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "industrial-metal",
+    "name": "工业金属 Industrial Metal",
+    "kind": "genre",
+    "period": "1980s 末—1990s，欧美",
+    "definition": "Industrial 的机械节奏/采样 + Heavy/Thrash riff",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "post-metal",
+    "name": "后金属 Post-Metal",
+    "kind": "umbrella",
+    "period": "1990s，欧美",
+    "definition": "Sludge/Hardcore/Industrial + Post-Rock/Ambient 的长篇和动态",
+    "scope": "核心",
+    "family": "metal"
+  },
+  {
+    "id": "blackgaze",
+    "name": "Blackgaze / Metalgaze",
+    "kind": "genre",
+    "period": "2000s，法国／全球网络",
+    "definition": "Black Metal + Shoegaze/Post-Rock 的音墙、氛围和结构",
+    "scope": "展开",
+    "family": "metal"
+  }
+]

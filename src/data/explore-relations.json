@@ -1,0 +1,662 @@
+[
+  {
+    "from": "blues",
+    "to": "r-and-b",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "jazz",
+    "to": "r-and-b",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "gospel",
+    "to": "r-and-b",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "r-and-b",
+    "to": "rock-and-roll",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "country",
+    "to": "rock-and-roll",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "gospel",
+    "to": "rock-and-roll",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "r-and-b",
+    "to": "rockabilly",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "country",
+    "to": "rockabilly",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "rock-and-roll",
+    "to": "british-beat",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "folk-traditions",
+    "to": "folk-rock",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "rock-and-roll",
+    "to": "folk-rock",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "blues",
+    "to": "blues-rock",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "garage-rock",
+    "to": "psychedelic-rock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "folk-rock",
+    "to": "psychedelic-rock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "blues-rock",
+    "to": "acid-rock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "psychedelic-rock",
+    "to": "acid-rock",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "psychedelic-rock",
+    "to": "progressive-rock",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "art-rock",
+    "to": "progressive-rock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "jazz",
+    "to": "jazz-rock",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "psychedelic-rock",
+    "to": "krautrock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "blues-rock",
+    "to": "hard-rock",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "psychedelic-rock",
+    "to": "hard-rock",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "hard-rock",
+    "to": "heavy-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "blues-rock",
+    "to": "heavy-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "garage-rock",
+    "to": "proto-punk",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "experimental-rock",
+    "to": "proto-punk",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "glam-rock",
+    "to": "punk-rock",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "proto-punk",
+    "to": "punk-rock",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "garage-rock",
+    "to": "punk-rock",
+    "type": "influenced_by",
+    "strength": "A"
+  },
+  {
+    "from": "punk-rock",
+    "to": "new-wave",
+    "type": "scene_successor",
+    "strength": "B"
+  },
+  {
+    "from": "punk-rock",
+    "to": "post-punk",
+    "type": "scene_successor",
+    "strength": "A"
+  },
+  {
+    "from": "experimental-rock",
+    "to": "post-punk",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "krautrock",
+    "to": "post-punk",
+    "type": "influenced_by",
+    "strength": "A"
+  },
+  {
+    "from": "punk-rock",
+    "to": "hardcore-punk",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "post-hardcore",
+    "type": "scene_successor",
+    "strength": "A"
+  },
+  {
+    "from": "post-hardcore",
+    "to": "emo",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "post-punk",
+    "to": "gothic-rock",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "gothic-rock",
+    "to": "ethereal-wave",
+    "type": "derived_from",
+    "strength": "B"
+  },
+  {
+    "from": "post-punk",
+    "to": "darkwave",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "post-punk",
+    "to": "noise-rock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "post-punk",
+    "to": "dream-pop",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "dream-pop",
+    "to": "shoegaze",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "noise-pop",
+    "to": "shoegaze",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "psychedelic-rock",
+    "to": "shoegaze",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "post-punk",
+    "to": "alternative-rock",
+    "type": "scene_successor",
+    "strength": "B"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "alternative-rock",
+    "type": "scene_successor",
+    "strength": "B"
+  },
+  {
+    "from": "indie-rock",
+    "to": "alternative-rock",
+    "type": "parallel_with",
+    "strength": "A"
+  },
+  {
+    "from": "punk-rock",
+    "to": "grunge",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "hard-rock",
+    "to": "grunge",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "heavy-metal",
+    "to": "grunge",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "grunge",
+    "to": "post-grunge",
+    "type": "commercialized_as",
+    "strength": "A"
+  },
+  {
+    "from": "british-beat",
+    "to": "britpop",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "indie-rock",
+    "to": "britpop",
+    "type": "scene_successor",
+    "strength": "A"
+  },
+  {
+    "from": "shoegaze",
+    "to": "britpop",
+    "type": "parallel_with",
+    "strength": "B"
+  },
+  {
+    "from": "industrial",
+    "to": "industrial-rock",
+    "type": "commercialized_as",
+    "strength": "B"
+  },
+  {
+    "from": "krautrock",
+    "to": "post-rock",
+    "type": "influenced_by",
+    "strength": "A"
+  },
+  {
+    "from": "experimental-rock",
+    "to": "post-rock",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "post-hardcore",
+    "to": "math-rock",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "garage-rock",
+    "to": "garage-rock-revival",
+    "type": "revival_of",
+    "strength": "A"
+  },
+  {
+    "from": "post-punk",
+    "to": "post-punk-revival",
+    "type": "revival_of",
+    "strength": "A"
+  },
+  {
+    "from": "emo",
+    "to": "emo-pop",
+    "type": "commercialized_as",
+    "strength": "B"
+  },
+  {
+    "from": "heavy-metal",
+    "to": "nwobhm",
+    "type": "scene_successor",
+    "strength": "A"
+  },
+  {
+    "from": "punk-rock",
+    "to": "nwobhm",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "glam-rock",
+    "to": "glam-metal",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "hard-rock",
+    "to": "glam-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "heavy-metal",
+    "to": "doom-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "doom-metal",
+    "to": "stoner-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "doom-metal",
+    "to": "sludge-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "sludge-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "nwobhm",
+    "to": "speed-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "speed-metal",
+    "to": "thrash-metal",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "thrash-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "thrash-metal",
+    "to": "groove-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "thrash-metal",
+    "to": "death-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "black-metal-first-wave",
+    "to": "death-metal",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "death-metal",
+    "to": "melodic-death-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "nwobhm",
+    "to": "melodic-death-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "death-metal",
+    "to": "brutal-death-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "death-metal",
+    "to": "technical-death-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "progressive-metal",
+    "to": "technical-death-metal",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "thrash-metal",
+    "to": "black-metal-first-wave",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "black-metal-first-wave",
+    "to": "black-metal-second-wave",
+    "type": "scene_successor",
+    "strength": "A"
+  },
+  {
+    "from": "speed-metal",
+    "to": "power-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "progressive-rock",
+    "to": "progressive-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "heavy-metal",
+    "to": "folk-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "black-metal-first-wave",
+    "to": "viking-metal",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "death-metal",
+    "to": "death-doom",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "doom-metal",
+    "to": "death-doom",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "death-doom",
+    "to": "funeral-doom",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "death-doom",
+    "to": "gothic-metal",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "gothic-rock",
+    "to": "gothic-metal",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "power-metal",
+    "to": "symphonic-metal",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "crossover-thrash",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "thrash-metal",
+    "to": "crossover-thrash",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "grindcore",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "death-metal",
+    "to": "grindcore",
+    "type": "influenced_by",
+    "strength": "B"
+  },
+  {
+    "from": "hardcore-punk",
+    "to": "metalcore",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "thrash-metal",
+    "to": "metalcore",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "melodic-death-metal",
+    "to": "melodic-metalcore",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "metalcore",
+    "to": "deathcore",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "death-metal",
+    "to": "deathcore",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "industrial",
+    "to": "industrial-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "heavy-metal",
+    "to": "alternative-metal",
+    "type": "fusion_of",
+    "strength": "B"
+  },
+  {
+    "from": "alternative-metal",
+    "to": "nu-metal",
+    "type": "derived_from",
+    "strength": "A"
+  },
+  {
+    "from": "hip-hop",
+    "to": "rap-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "funk",
+    "to": "funk-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "sludge-metal",
+    "to": "post-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "post-rock",
+    "to": "post-metal",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "black-metal-second-wave",
+    "to": "blackgaze",
+    "type": "fusion_of",
+    "strength": "A"
+  },
+  {
+    "from": "shoegaze",
+    "to": "blackgaze",
+    "type": "fusion_of",
+    "strength": "A"
+  }
+]

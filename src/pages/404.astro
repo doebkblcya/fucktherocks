@@ -1,0 +1,63 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="404"
+  description="这里没有这条路线。"
+  page="error"
+>
+  <section class="error-page">
+    <div class="error-copy">
+      <h1>404</h1>
+      <p>页面不存在。</p>
+      <div class="error-actions">
+        <a href="/">首页 ↗</a>
+        <a href="/explore">探索 ↗</a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .error-page {
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .error-copy {
+    width: min(100%, 48rem);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(7rem, 20vw, 15rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+  }
+
+  p {
+    margin: 1.5rem 0 4rem;
+    font-size: 0.9rem;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 3rem;
+    border-top: 1px solid var(--ink);
+    padding-top: 1rem;
+  }
+
+  .error-actions a {
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    .error-page {
+      padding: 7rem 1rem 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,354 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import genres from '../data/explore-genres.json';
+import eras from '../data/explore-eras.json';
+import relations from '../data/explore-relations.json';
+
+const families = [
+  { id: 'roots', number: '01', title: '根源、早期与相邻音乐', note: '包含摇滚的多条根源，以及持续影响它的非摇滚传统。' },
+  { id: 'expansion', number: '02', title: '摇滚的第一次扩张', note: '民谣、迷幻、蓝调、前卫与硬摇滚走向不同方向。' },
+  { id: 'alternative', number: '03', title: '朋克与另类网络', note: '声音之外，也包括场地、厂牌、媒介和独立发行。' },
+  { id: 'metal', number: '04', title: '金属及其分支', note: '从传统重金属到极端、融合与后续类型。' },
+] as const;
+
+const names = new Map(genres.map((genre) => [genre.id, genre.name]));
+const familyCounts = new Map(families.map((family) => [family.id, genres.filter((genre) => genre.family === family.id).length]));
+const kindLabels: Record<string, string> = {
+  root: '根源传统',
+  adjacent: '相邻传统',
+  genre: '流派',
+  scene: '场景／运动',
+  umbrella: '伞形标签',
+  method: '方法／修饰语',
+};
+const relationLabels: Record<string, string> = {
+  derived_from: '衍生',
+  fusion_of: '融合',
+  influenced_by: '影响',
+  scene_successor: '场景承接',
+  commercialized_as: '市场化',
+  revival_of: '复兴',
+  parallel_with: '并行',
+};
+---
+
+<SiteLayout
+  title="探索摇滚发展史与流派"
+  description="从摇滚根源到当代，沿完整时间链阅读 95 个重要流派、场景与相邻传统。"
+  page="explore"
+>
+  <div class="explore-page">
+    <header class="page-intro">
+      <div>
+        <p class="eyebrow">ROCK / HISTORY & GENRES</p>
+        <h1>探索</h1>
+      </div>
+      <p>从根源到今天。先看时间如何推进，再看声音如何分支。</p>
+    </header>
+
+    <nav class="section-nav" aria-label="探索页导航">
+      <a href="#timeline">时间链 <span>11 段</span></a>
+      <a href="#taxonomy">流派索引 <span>{genres.length} 条</span></a>
+    </nav>
+
+    <section class="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title" class="visually-hidden">四条主要脉络</h2>
+      {families.map((family) => (
+        <a href={`#family-${family.id}`}>
+          <span class="overview-number">{family.number}</span>
+          <strong>{family.title}</strong>
+          <span class="overview-count">{familyCounts.get(family.id)} 条 ↗</span>
+        </a>
+      ))}
+    </section>
+
+    <section class="timeline section-block" id="timeline" aria-labelledby="timeline-title">
+      <div class="section-title">
+        <p class="eyebrow">01 / CHRONOLOGY</p>
+        <h2 id="timeline-title">时间链</h2>
+        <p>年代是进入历史的入口，不是流派的出生证明；许多声音在被命名前已经存在。</p>
+      </div>
+
+      <ol class="era-list">
+        {eras.map((era, index) => (
+          <li id={`era-${era.id}`}>
+            <div class="era-marker">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <time>{era.period}</time>
+            </div>
+            <div class="era-body">
+              <h3>{era.title}</h3>
+              <p>{era.summary}</p>
+              <div class="era-genres" aria-label="这一阶段的主要流派与场景">
+                {era.genres.filter((id) => names.has(id)).map((id) => (
+                  <a href={`#genre-${id}`} data-open-genre={id}>{names.get(id)} <span>↗</span></a>
+                ))}
+              </div>
+              <p class="era-shift"><span>关键变化</span>{era.shift}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="taxonomy section-block" id="taxonomy" aria-labelledby="taxonomy-title">
+      <div class="section-title">
+        <p class="eyebrow">02 / GENRE INDEX</p>
+        <h2 id="taxonomy-title">流派索引</h2>
+        <p>按四条脉络便于查找；它们相互交叉，并非互斥的家谱。</p>
+      </div>
+
+      <div class="index-tools">
+        <label for="genre-search">查找名称、时期或声音特征</label>
+        <input id="genre-search" type="search" placeholder="例如：后朋克 / Shoegaze / 1990s" autocomplete="off" data-genre-search />
+        <span data-result-count>共 {genres.length} 条</span>
+      </div>
+
+      <p class="no-results" data-no-results hidden>没有匹配的条目。试试中文名、英文名或年代。</p>
+
+      {families.map((family) => (
+        <section class="family" id={`family-${family.id}`} data-family>
+          <header class="family-heading">
+            <span>{family.number}</span>
+            <div>
+              <h3>{family.title}</h3>
+              <p>{family.note}</p>
+            </div>
+            <span>{familyCounts.get(family.id)} 条</span>
+          </header>
+
+          <div class="genre-list">
+            {genres.filter((genre) => genre.family === family.id).map((genre) => {
+              const incoming = relations.filter((relation) => relation.to === genre.id && relation.from !== genre.id);
+              const outgoing = relations.filter((relation) => relation.from === genre.id && relation.to !== genre.id);
+              return (
+                <details
+                  class="genre-row"
+                  id={`genre-${genre.id}`}
+                  data-genre={genre.id}
+                  data-search-value={`${genre.name} ${genre.period} ${genre.definition} ${kindLabels[genre.kind] ?? ''}`.toLocaleLowerCase()}
+                >
+                  <summary>
+                    <span class="genre-name">{genre.name}</span>
+                    <span class="genre-period">{genre.period}</span>
+                    <span class="genre-expand" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="genre-detail">
+                    <div class="genre-definition">
+                      <span>{kindLabels[genre.kind] ?? '流派'}</span>
+                      <p>{genre.definition}</p>
+                    </div>
+                    {(incoming.length > 0 || outgoing.length > 0) && (
+                      <div class="genre-relations">
+                        {incoming.length > 0 && (
+                          <div>
+                            <span>来源与影响</span>
+                            <ul>
+                              {incoming.map((relation) => (
+                                <li><a href={`#genre-${relation.from}`} data-open-genre={relation.from}>{names.get(relation.from)}</a><small>{relationLabels[relation.type]}</small></li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {outgoing.length > 0 && (
+                          <div>
+                            <span>后续与连接</span>
+                            <ul>
+                              {outgoing.map((relation) => (
+                                <li><a href={`#genre-${relation.to}`} data-open-genre={relation.to}>{names.get(relation.to)}</a><small>{relationLabels[relation.type]}</small></li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+    </section>
+
+    <aside class="source-note" aria-label="资料与边界">
+      <p>这是一份可阅读的主要谱系，不宣称列尽所有地方场景或给每个流派指定唯一父级。年代多指形成区间，关系只展示资料母稿中证据较充分的连结。</p>
+      <p>资料基础：<a href="https://rockhall.com/exhibitions/roots-of-rock/" target="_blank" rel="noreferrer">Rock Hall</a>、<a href="https://nmaahc.si.edu/explore/stories/celebrating-black-music-month" target="_blank" rel="noreferrer">Smithsonian</a>、<a href="https://lcweb2.loc.gov/static/programs/national-recording-preservation-board/documents/Velvet-Underground-and-Nico_Levy.pdf" target="_blank" rel="noreferrer">Library of Congress</a> 及项目整理资料。</p>
+    </aside>
+  </div>
+</SiteLayout>
+
+<script>
+  const search = document.querySelector<HTMLInputElement>('[data-genre-search]');
+  const rows = Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-genre]'));
+  const families = Array.from(document.querySelectorAll<HTMLElement>('[data-family]'));
+  const resultCount = document.querySelector<HTMLElement>('[data-result-count]');
+  const noResults = document.querySelector<HTMLElement>('[data-no-results]');
+
+  const applySearch = () => {
+    const query = search?.value.trim().toLocaleLowerCase() ?? '';
+    let matches = 0;
+    rows.forEach((row) => {
+      const visible = !query || row.dataset.searchValue?.includes(query);
+      row.hidden = !visible;
+      if (visible) matches += 1;
+    });
+    families.forEach((family) => {
+      family.hidden = !family.querySelector('[data-genre]:not([hidden])');
+    });
+    if (resultCount) resultCount.textContent = query ? `找到 ${matches} 条` : `共 ${rows.length} 条`;
+    if (noResults) noResults.hidden = matches !== 0;
+  };
+
+  const openGenre = (id: string, scroll = true) => {
+    const row = document.getElementById(`genre-${id}`) as HTMLDetailsElement | null;
+    if (!row) return;
+    if (search) search.value = '';
+    applySearch();
+    row.open = true;
+    if (scroll) requestAnimationFrame(() => row.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
+
+  search?.addEventListener('input', applySearch);
+  search?.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && search.value) {
+      search.value = '';
+      applySearch();
+    }
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-open-genre]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const id = link.dataset.openGenre;
+      if (!id) return;
+      event.preventDefault();
+      openGenre(id);
+      const url = new URL(window.location.href);
+      url.searchParams.set('genre', id);
+      history.pushState({ genre: id }, '', url);
+    });
+  });
+
+  rows.forEach((row) => {
+    row.addEventListener('toggle', () => {
+      if (!row.open) return;
+      const id = row.dataset.genre;
+      if (!id) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set('genre', id);
+      history.replaceState({ genre: id }, '', url);
+    });
+  });
+
+  window.addEventListener('popstate', () => {
+    const id = new URL(window.location.href).searchParams.get('genre');
+    if (id) openGenre(id);
+    else rows.forEach((row) => { row.open = false; });
+  });
+
+  const initial = new URL(window.location.href).searchParams.get('genre')
+    ?? window.location.hash.replace(/^#genre-/, '');
+  if (initial) openGenre(initial);
+</script>
+
+<style>
+  .explore-page { max-width: 1600px; margin: 0 auto; }
+  .page-intro { min-height: 20rem; padding: 7rem 3.5% 2.5rem; display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+  .page-intro h1 { margin: 1.5rem 0 0; font-size: clamp(5rem, 11vw, 10rem); line-height: 0.85; letter-spacing: -0.09em; }
+  .page-intro > p { max-width: 18rem; margin: 0; font-size: 0.95rem; line-height: 1.7; }
+  .section-nav { position: sticky; z-index: 20; top: 4.25rem; display: flex; gap: 2rem; padding: 0.9rem 3.5%; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper); }
+  .section-nav a { display: flex; gap: 0.8rem; align-items: baseline; text-decoration: none; font-size: 0.75rem; font-weight: 600; }
+  .section-nav a span { color: var(--muted); font-family: var(--mono); font-size: 0.62rem; font-weight: 400; }
+  .section-nav a:hover, .overview a:hover strong, .era-genres a:hover, .genre-relations a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .overview { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 3rem 3.5%; }
+  .overview a { display: grid; align-content: space-between; min-height: 9rem; gap: 0.7rem; padding: 1rem 1rem 0 0; border-top: 1px solid var(--ink); text-decoration: none; }
+  .overview a:not(:first-child) { margin-left: 1.5rem; }
+  .overview-number, .overview-count { font-family: var(--mono); font-size: 0.62rem; }
+  .overview strong { font-size: clamp(0.9rem, 1.3vw, 1.2rem); font-weight: 600; }
+  .overview-count { color: var(--muted); }
+  .section-block { padding: 3rem 3.5% 7rem; scroll-margin-top: 7.5rem; }
+  .section-title { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; align-items: end; margin-bottom: 4rem; }
+  .section-title .eyebrow { grid-column: 1 / -1; }
+  .section-title h2 { margin: 0.7rem 0 0; font-size: clamp(3.5rem, 7vw, 7rem); line-height: 0.9; letter-spacing: -0.08em; }
+  .section-title > p:last-child { max-width: 17rem; margin: 0; color: var(--muted); font-size: 0.78rem; line-height: 1.6; }
+  .timeline { border-top: 1px solid var(--ink); }
+  .era-list { margin: 0; padding: 0; list-style: none; }
+  .era-list li { display: grid; grid-template-columns: minmax(11rem, 24%) 1fr; gap: 2rem; padding: 2rem 0 3.4rem; border-top: 1px solid var(--line); scroll-margin-top: 8.5rem; }
+  .era-marker { display: grid; align-content: start; gap: 0.9rem; }
+  .era-marker > span { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); }
+  .era-marker time { font-family: var(--serif); font-size: clamp(1.45rem, 2.5vw, 2.3rem); font-style: italic; letter-spacing: -0.06em; }
+  .era-body h3 { margin: 0; font-size: clamp(1.45rem, 2.7vw, 2.4rem); line-height: 1.12; letter-spacing: -0.04em; }
+  .era-body > p:first-of-type { max-width: 38rem; margin: 1rem 0 1.8rem; font-size: 0.83rem; line-height: 1.7; }
+  .era-genres { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; max-width: 58rem; }
+  .era-genres a { font-size: 0.73rem; line-height: 1.7; text-decoration: none; }
+  .era-genres span { color: var(--muted); font-size: 0.58rem; }
+  .era-shift { display: flex; flex-wrap: wrap; gap: 1.2rem; margin: 2rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.69rem; line-height: 1.5; }
+  .era-shift span { flex: none; color: var(--ink); font-family: var(--mono); font-size: 0.62rem; }
+  .taxonomy { border-top: 1px solid var(--ink); }
+  .index-tools { display: grid; grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr) auto; align-items: center; gap: 1.5rem; padding: 0.8rem 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .index-tools label, .index-tools > span { font-family: var(--mono); font-size: 0.65rem; }
+  .index-tools > span { color: var(--muted); white-space: nowrap; }
+  .index-tools input { width: 100%; padding: 0.45rem 0; border: 0; border-radius: 0; outline: 0; background: transparent; color: var(--ink); font-size: 0.83rem; }
+  .index-tools input:focus-visible { outline: 2px solid var(--signal); outline-offset: 4px; }
+  .index-tools input::placeholder { color: var(--muted); }
+  .family { display: grid; grid-template-columns: minmax(11rem, 24%) 1fr; gap: 2rem; padding: 4rem 0 2rem; scroll-margin-top: 8rem; }
+  .family[hidden], .genre-row[hidden], .no-results[hidden] { display: none; }
+  .family-heading { display: grid; align-content: start; gap: 1rem; }
+  .family-heading > span { font-family: var(--mono); font-size: 0.62rem; }
+  .family-heading > span:last-child { color: var(--muted); }
+  .family-heading h3 { margin: 0; font-size: clamp(1.2rem, 2vw, 1.7rem); line-height: 1.2; }
+  .family-heading p { max-width: 14rem; margin: 0.5rem 0 0; color: var(--muted); font-size: 0.73rem; line-height: 1.6; }
+  .genre-list { border-top: 1px solid var(--ink); }
+  .genre-row { border-bottom: 1px solid var(--line); scroll-margin-top: 8rem; }
+  .genre-row summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(8rem, 31%) 1rem; gap: 1rem; align-items: baseline; padding: 0.9rem 0; cursor: pointer; list-style: none; }
+  .genre-row summary::-webkit-details-marker { display: none; }
+  .genre-row summary:hover .genre-name { text-decoration: underline; text-underline-offset: 3px; }
+  .genre-name { font-size: 0.85rem; font-weight: 600; line-height: 1.4; }
+  .genre-period { color: var(--muted); font-family: var(--mono); font-size: 0.59rem; line-height: 1.5; }
+  .genre-expand { font-family: var(--mono); font-size: 0.8rem; text-align: right; }
+  .genre-row[open] .genre-expand { transform: rotate(45deg); }
+  .genre-detail { max-width: 46rem; padding: 0.3rem 0 2rem; }
+  .genre-definition { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; }
+  .genre-definition > span, .genre-relations > div > span { color: var(--muted); font-family: var(--mono); font-size: 0.62rem; }
+  .genre-definition p { margin: 0; font-size: 0.81rem; line-height: 1.7; }
+  .genre-relations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 1.7rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .genre-relations ul { display: grid; gap: 0.5rem; margin: 0.6rem 0 0; padding: 0; list-style: none; }
+  .genre-relations li { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.72rem; line-height: 1.4; }
+  .genre-relations a { text-decoration: none; }
+  .genre-relations small { flex: none; color: var(--muted); font-family: var(--mono); font-size: 0.57rem; }
+  .no-results { padding: 2rem 0; font-size: 0.83rem; }
+  .source-note { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; padding: 2rem 3.5% 5rem; border-top: 1px solid var(--line); color: var(--muted); }
+  .source-note p { max-width: 36rem; margin: 0; font-size: 0.69rem; line-height: 1.7; }
+  .source-note a { text-underline-offset: 2px; }
+  @media (max-width: 760px) {
+    .page-intro { display: grid; min-height: 21rem; padding: 7rem 1rem 2rem; }
+    .page-intro h1 { font-size: clamp(5rem, 22vw, 7rem); }
+    .page-intro > p { font-size: 0.8rem; }
+    .section-nav { top: 4rem; gap: 1.4rem; padding: 0.85rem 1rem; }
+    .overview { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; padding: 3rem 1rem 2rem; }
+    .overview a { min-height: 7.5rem; }
+    .overview a:not(:first-child) { margin-left: 0; }
+    .section-block { padding: 2.5rem 1rem 5rem; }
+    .section-title { display: block; margin-bottom: 3rem; }
+    .section-title > p:last-child { margin-top: 1.5rem; }
+    .era-list li, .family { grid-template-columns: 1fr; gap: 1.2rem; }
+    .era-list li { padding: 1.6rem 0 2.7rem; }
+    .era-marker { display: flex; align-items: baseline; gap: 1rem; }
+    .era-body h3 { font-size: 1.45rem; }
+    .era-genres { gap: 0.35rem 0.9rem; }
+    .era-shift { margin-top: 1.4rem; }
+    .index-tools { grid-template-columns: 1fr auto; gap: 0.5rem; }
+    .index-tools input { grid-row: 2; grid-column: 1 / -1; }
+    .family { padding-top: 3rem; }
+    .family-heading { gap: 0.4rem; }
+    .family-heading > span:last-child { display: none; }
+    .family-heading p { max-width: 24rem; }
+    .genre-row summary { grid-template-columns: minmax(0, 1fr) 1rem; gap: 0.5rem; }
+    .genre-period { grid-column: 1; grid-row: 2; }
+    .genre-expand { grid-column: 2; grid-row: 1; }
+    .genre-definition { grid-template-columns: 1fr; gap: 0.4rem; }
+    .genre-relations { grid-template-columns: 1fr; gap: 1.4rem; }
+    .source-note { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1rem 4rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .section-nav { scroll-behavior: auto; } }
+</style>

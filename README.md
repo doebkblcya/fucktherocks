@@ -12,16 +12,16 @@
 
 ## 当前状态
 
-产品范围、视觉方向和实现原则已经重新确认。旧版网站实现不再使用，工程将从空白页面骨架重新建立；`docs/` 与 `docs/materials/` 是当前事实来源。
+三个页面的可评审原型已经建立。首页从球体内部环视 30 张真实专辑封面；探索页已扩展为从根源到当代的 11 段时间链、95 个流派／场景／相邻传统条目及文字关系。内容资料仍在逐条核对，不能把这份主要谱系当作全球所有子流派的终极清单。`docs/` 与 `docs/materials/` 是产品和内容的事实来源。
 
-## 计划技术栈
+## 技术栈
 
 - Astro 6
 - TypeScript
 - Tailwind CSS 4
 - Three.js：首页 3D 场景
 - GSAP：首页滚动编排
-- SVG + HTML：探索页关系网络与可访问内容
+- HTML：探索页时间链、分类索引与文字关系
 - 静态构建
 
 ## 文档
@@ -30,13 +30,18 @@
 - [`docs/design.md`](./docs/design.md)：视觉与交互设计
 - [`docs/implementation.md`](./docs/implementation.md)：实现方案
 - [`docs/roadmap.md`](./docs/roadmap.md)：实施顺序
+- [`docs/album-covers.md`](./docs/album-covers.md)：首页专辑选择与封面来源
 - [`docs/materials/`](./docs/materials/)：原始资料、内容母稿与来源
 
 ## 本地运行
 
-工程重新建立后使用：
+本地运行：
 
 ~~~sh
 pnpm install
 pnpm dev
 ~~~
+
+封面保存在项目的 `public/covers/` 并纳入 Git，静态构建会将它们复制到 `dist/covers/`。`pnpm covers` 只在需要补抓缺失文件时运行。来源记录在 `public/covers/manifest.json`。
+
+部署到 Cloudflare Pages 时连接 Git 仓库，构建命令设为 `pnpm build`，输出目录设为 `dist`。首页先加载当前封面，再限量加载视野附近的封面；不需要另外配置 R2。
