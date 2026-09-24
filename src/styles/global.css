@@ -21,7 +21,6 @@ html {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  scroll-behavior: smooth;
   text-rendering: geometricPrecision;
 }
 

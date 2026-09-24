@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ArrowIcon from '../components/ArrowIcon.astro';
 
 interface Props {
   title?: string;
@@ -32,9 +33,9 @@ const documentTitle = title === 'FuckTheRocks' ? title : `${title} — FuckTheRo
     <header class="site-header">
       <a class="wordmark" href="/" aria-label="FuckTheRocks 首页">FUCKTHEROCKS</a>
       {page !== 'explore' ? (
-        <a class="header-link" href="/explore">探索 ↗</a>
+        <a class="header-link" href="/explore">探索 <ArrowIcon /></a>
       ) : (
-        <a class="header-link" href="/">首页 ↗</a>
+        <a class="header-link" href="/">首页 <ArrowIcon /></a>
       )}
     </header>
     <main id="main-content">

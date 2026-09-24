@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ArrowIcon from '../components/ArrowIcon.astro';
 ---
 
 <SiteLayout
@@ -12,8 +13,8 @@ import SiteLayout from '../layouts/SiteLayout.astro';
       <h1>404</h1>
       <p>页面不存在。</p>
       <div class="error-actions">
-        <a href="/">首页 ↗</a>
-        <a href="/explore">探索 ↗</a>
+        <a href="/">首页 <ArrowIcon /></a>
+        <a href="/explore">探索 <ArrowIcon /></a>
       </div>
     </div>
   </section>

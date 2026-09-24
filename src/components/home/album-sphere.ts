@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { gsap } from 'gsap';
 import albumData from '../../data/home-albums.json';
 
 type Album = {
@@ -18,6 +17,8 @@ const START_LATITUDE = 0.58;
 const LATITUDE_RANGE = 1.16;
 const GALLERY_RADIUS = 8.7;
 const GRID_RADIUS = 10.4;
+const PROGRESS_DAMPING = 12;
+const IDLE_RENDER_MS = 900;
 
 function pointOnSphere(progress: number) {
   const latitude = START_LATITUDE - progress * LATITUDE_RANGE;
@@ -202,6 +203,7 @@ export async function initAlbumSphere(shell: HTMLElement) {
         mesh.material.map = texture;
         mesh.material.needsUpdate = true;
         groups[index].visible = true;
+        wake();
       })
       .catch(() => { groups[index].visible = false; });
     loading.set(index, promise);
@@ -231,7 +233,15 @@ export async function initAlbumSphere(shell: HTMLElement) {
     pumpTextureQueue();
   };
 
-  const eased = { value: 0 };
+  let easedProgress = 0;
+  let lastRenderAt = performance.now();
+  let scrollStart = 0;
+  let scrollDistance = 1;
+  let scrollFrame = 0;
+  let lastQueuedIndex = -1;
+  let canvasWidth = 0;
+  let canvasHeight = 0;
+  let canvasPixelRatio = 0;
   const pointer = new THREE.Vector2();
   const pointerEased = new THREE.Vector2();
   const lookDirection = new THREE.Vector3();
@@ -241,12 +251,14 @@ export async function initAlbumSphere(shell: HTMLElement) {
   const scale = new THREE.Vector3();
   const targetPosition = new THREE.Vector3();
   const captionContent = document.querySelector<HTMLElement>('[data-album-caption-content]');
+  let captionAnimation: Animation | undefined;
   let activeIndex = -1;
   let frame = 0;
   let visible = !document.hidden;
   let inViewport = true;
   let contextLost = false;
   let targetProgress = 0;
+  let lastWakeAt = performance.now();
 
   const updateActiveText = (index: number) => {
     if (index === activeIndex) return;
@@ -268,45 +280,59 @@ export async function initAlbumSphere(shell: HTMLElement) {
     document.querySelectorAll<HTMLElement>('[data-active-intro]').forEach((node) => {
       node.textContent = album.intro;
     });
-    if (captionContent && wasInitialized) {
-      gsap.fromTo(captionContent,
-        { autoAlpha: 0.45, y: 9 },
-        { autoAlpha: 1, y: 0, duration: 0.48, ease: 'power2.out', overwrite: true },
+    if (captionContent && wasInitialized && window.innerWidth > 760) {
+      captionAnimation?.cancel();
+      captionAnimation = captionContent.animate(
+        [
+          { opacity: 0.45, transform: 'translateY(9px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+        { duration: 480, easing: 'ease-out' },
       );
     }
   };
 
   const measure = () => {
     const rect = shell.getBoundingClientRect();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.15 : 1.5));
-    renderer.setSize(rect.width, rect.height, false);
-    camera.fov = window.innerWidth < 760 ? 78 : 68;
-    camera.aspect = rect.width / Math.max(rect.height, 1);
-    camera.updateProjectionMatrix();
+    scrollStart = scrollRoot.getBoundingClientRect().top + window.scrollY;
+    scrollDistance = Math.max(scrollRoot.offsetHeight - window.innerHeight, 1);
+    const pixelRatio = Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.15 : 1.5);
+    if (rect.width !== canvasWidth || rect.height !== canvasHeight || pixelRatio !== canvasPixelRatio) {
+      canvasWidth = rect.width;
+      canvasHeight = rect.height;
+      if (pixelRatio !== canvasPixelRatio) renderer.setPixelRatio(pixelRatio);
+      canvasPixelRatio = pixelRatio;
+      renderer.setSize(rect.width, rect.height, false);
+      camera.aspect = rect.width / Math.max(rect.height, 1);
+      camera.updateProjectionMatrix();
+    }
+    const fov = window.innerWidth < 760 ? 78 : 68;
+    if (camera.fov !== fov) {
+      camera.fov = fov;
+      camera.updateProjectionMatrix();
+    }
   };
 
   const updateProgress = () => {
-    const rect = scrollRoot.getBoundingClientRect();
-    const distance = Math.max(scrollRoot.offsetHeight - window.innerHeight, 1);
-    const progress = THREE.MathUtils.clamp(-rect.top / distance, 0, 1);
+    const progress = THREE.MathUtils.clamp((window.scrollY - scrollStart) / scrollDistance, 0, 1);
     targetProgress = progress;
-    gsap.to(eased, {
-      value: progress,
-      duration: 1.15,
-      ease: 'power2.out',
-      overwrite: true,
-    });
-    if (texturesReady) {
-      queueNearbyTextures(pointOnSphere(progress).direction, Math.round(progress * (albums.length - 1)));
+    wake();
+    const focusIndex = Math.round(progress * (albums.length - 1));
+    if (texturesReady && focusIndex !== lastQueuedIndex) {
+      lastQueuedIndex = focusIndex;
+      queueNearbyTextures(pointOnSphere(progress).direction, focusIndex);
     }
     return progress;
   };
 
-  const render = () => {
+  const render = (now: number) => {
     frame = 0;
     if (contextLost || !visible || !inViewport) return;
 
-    const progress = eased.value;
+    const deltaSeconds = Math.min(Math.max((now - lastRenderAt) / 1000, 0), 0.08);
+    lastRenderAt = now;
+    easedProgress = THREE.MathUtils.damp(easedProgress, targetProgress, PROGRESS_DAMPING, deltaSeconds);
+    const progress = easedProgress;
     const position = progress * (albums.length - 1);
     const { direction, longitude } = pointOnSphere(progress);
     updateActiveText(Math.round(position));
@@ -340,22 +366,46 @@ export async function initAlbumSphere(shell: HTMLElement) {
     });
 
     renderer.render(scene, camera);
-    frame = requestAnimationFrame(render);
+    if (now - lastWakeAt < IDLE_RENDER_MS
+      || Math.abs(easedProgress - targetProgress) > 0.0001
+      || pointerEased.distanceToSquared(pointer) > 0.00001) {
+      frame = requestAnimationFrame(render);
+    }
   };
 
   const resume = () => {
-    if (!frame && visible && inViewport && !contextLost) frame = requestAnimationFrame(render);
+    if (!disposed && !frame && visible && inViewport && !contextLost) frame = requestAnimationFrame(render);
+  };
+  const wake = () => {
+    lastWakeAt = performance.now();
+    resume();
   };
   const onVisibility = () => {
     visible = !document.hidden;
-    resume();
+    if (visible) wake();
   };
   const onPointerMove = (event: PointerEvent) => {
     if (event.pointerType !== 'mouse' || window.innerWidth <= 760) return;
     pointer.x = THREE.MathUtils.clamp(event.clientX / window.innerWidth * 2 - 1, -1, 1);
     pointer.y = THREE.MathUtils.clamp(event.clientY / window.innerHeight * 2 - 1, -1, 1);
+    wake();
   };
-  const onPointerLeave = () => pointer.set(0, 0);
+  const onPointerLeave = () => {
+    pointer.set(0, 0);
+    wake();
+  };
+  const onResize = () => {
+    measure();
+    updateProgress();
+    wake();
+  };
+  const onScroll = () => {
+    if (scrollFrame) return;
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = 0;
+      updateProgress();
+    });
+  };
   const onContextLost = (event: Event) => {
     event.preventDefault();
     contextLost = true;
@@ -371,13 +421,13 @@ export async function initAlbumSphere(shell: HTMLElement) {
       cancelAnimationFrame(frame);
       frame = 0;
     } else {
-      resume();
+      wake();
     }
   });
   observer.observe(shell);
 
-  window.addEventListener('resize', measure, { passive: true });
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('pointermove', onPointerMove, { passive: true });
   window.addEventListener('pointerleave', onPointerLeave);
   document.addEventListener('visibilitychange', onVisibility);
@@ -385,25 +435,25 @@ export async function initAlbumSphere(shell: HTMLElement) {
 
   measure();
   const initialProgress = updateProgress();
-  gsap.killTweensOf(eased);
-  eased.value = initialProgress;
+  easedProgress = initialProgress;
   const initialIndex = Math.round(initialProgress * (albums.length - 1));
   updateActiveText(initialIndex);
   await ensureTexture(initialIndex);
   shell.dataset.ready = 'true';
-  resume();
+  wake();
   texturesReady = true;
-  queueNearbyTextures(pointOnSphere(targetProgress).direction, Math.round(targetProgress * (albums.length - 1)));
+  lastQueuedIndex = Math.round(targetProgress * (albums.length - 1));
+  queueNearbyTextures(pointOnSphere(targetProgress).direction, lastQueuedIndex);
 
   return () => {
     disposed = true;
     textureQueue.length = 0;
     cancelAnimationFrame(frame);
+    cancelAnimationFrame(scrollFrame);
     observer.disconnect();
-    gsap.killTweensOf(eased);
-    if (captionContent) gsap.killTweensOf(captionContent);
-    window.removeEventListener('resize', measure);
-    window.removeEventListener('scroll', updateProgress);
+    captionAnimation?.cancel();
+    window.removeEventListener('resize', onResize);
+    window.removeEventListener('scroll', onScroll);
     window.removeEventListener('pointermove', onPointerMove);
     window.removeEventListener('pointerleave', onPointerLeave);
     document.removeEventListener('visibilitychange', onVisibility);
